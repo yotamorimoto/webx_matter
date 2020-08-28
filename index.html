@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <title>sound | matter</title>
+    <!-- .......................................... css -->
+    <style>
+    body {
+    	margin: 0;
+      padding: 0;
+    	color: white;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    }
+    #play {
+      position: fixed;
+      z-index: 0;
+      width: 100%; height: 100%;
+      top: 0; left: 0; right: 0; bottom: 0;
+      padding: 0;
+      font-size: 150px;
+      font-style: italic;
+      text-align: center;
+      letter-spacing: -2px;
+      color: white;
+      background-color: black;
+      border: none;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+    }
+    #play:hover {
+      color: black;
+      background-color: white;
+    }
+    #info {
+    	position: fixed;
+      z-index: -1;
+      width: 100%;
+      color: white;
+      top: 25px; left: 0; right: 0; bottom: 0;
+      font-size: 50px;
+    	font-style: italic;
+    	text-align: center;
+      user-select: none;
+    }
+    #text {
+      position: fixed;
+      z-index: -1;
+      width: 100%;
+      color: black;
+      background-color: rgba(255,255,255,0.5);
+      top: auto; left: 0; right: 0; bottom: 20px;
+      font-size: 12px;
+      font-family: serif;
+      text-align: left;
+      user-select: none;
+    }
+    p {
+      padding: 0px 10px 0px 10px;
+    }
+    #soundmatter {
+      position: fixed;
+      z-index: -2;
+      width: 100%; height: 100%;
+      top: 0; left: 0; right: 0; bottom: 0;
+    }
+    </style>
+    <!-- .......................................... css -->
+
+    <!-- .......................................... js  -->
+    <script type="text/javascript" src="Tone.min.js"></script>
+    <script type="text/javascript" src="jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="three.min.js"></script>
+    <script type="text/javascript" src="index.js"></script>
+    <!-- .......................................... js  -->
+  </head>
+
+  <body>
+    <script>
+      function hide(){
+        var x = Tone.context;
+        // alert(x.state);
+        if(!(x.state == 'running')){
+          // alert('not running');
+          var buffer = x.createBuffer(1, 1, x.sampleRate);
+          var dummy = x.createBufferSource();
+          dummy.buffer = buffer;
+          dummy.connect(x.destination);
+          dummy.start(0);
+          // alert(x.state);
+        }
+        if(!(Tone.Transport.state=='started')){
+          Tone.Transport.start();
+        }
+        document.getElementById("play").style.display = "none";
+      }
+    </script>
+    <!--  .......................................... ui -->
+    <button id="play" onclick="hide()">play</button>
+    <div id="info">sound | matter</div>
+    <div id='text'>
+      <p>
+      音を可視化する試みは古くからあり、18世紀ドイツの音楽家／物理学者エルンスト・クラドニの完成させた、粉を用いて物の表面の振動パターンを観察する方法や、空気の流れの光学的なムラを可視化するシュリーレン法などが例として挙げられます。エレクトロニクスやコンピュータの発達によって、オシロスコープやスペクトル分析を使う方法も可能となりました。このデモは厳密な可視化ではなく、流体力学のシミュレーションを用いてより感覚的に音の物質性が感じられるようなものを目指し作りました。音の組み合わせは絶えず変化し、それらが水面にことなる波紋を形作ります。
+      </p>
+    </div>
+    <!--  .......................................... ui -->
+    <div id="soundmatter">
+    </div>
+  </body>
+</html>
