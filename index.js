@@ -96,63 +96,63 @@
           // var input = new Tone.UserMedia();
           // input.open();
           var mute1 = new Tone.Player({
-            url: "mute1.wav",
+            url: "mute1.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var mute2 = new Tone.Player({
-            url: "mute2.wav",
+            url: "mute2.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var pluck = new Tone.Player({
-            url: "pluck.wav",
+            url: "pluck.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var una1 = new Tone.Player({
-            url: "una1.wav",
+            url: "una1.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var una2 = new Tone.Player({
-            url: "una2.wav",
+            url: "una2.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var una3 = new Tone.Player({
-            url: "una3.wav",
+            url: "una3.mp3",
             fadeIn: 0.01,
             fadeOut: 0.1,
             retrigger: true,
             loop: false
           });
           var vn = new Tone.Player({
-            url: "vn.wav",
+            url: "vn.mp3",
             fadeIn: 0.1,
             fadeOut: 1,
             retrigger: true,
             loop: false
           });
           var water1 = new Tone.Player({
-            url: "water1.wav",
+            url: "water1.mp3",
             fadeIn: 0.1,
             fadeOut: 0.1,
             retrigger: false,
             loop: false
           });
           var water2 = new Tone.Player({
-            url: "water2.wav",
+            url: "water2.mp3",
             fadeIn: 0.1,
             fadeOut: 0.1,
             retrigger: false,
